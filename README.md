@@ -1,0 +1,2 @@
+# SymfonyBlog
+First Symfony project
