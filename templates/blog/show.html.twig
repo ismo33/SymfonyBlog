@@ -1,0 +1,13 @@
+{% extends "base.html.twig" %}
+{% block title %}Arcticle numéro{% endblock %}
+{% block body %}
+<div class="content">
+            <h2>{{article.title}}</h2>
+             <div class="metadata"><b>Article écrit le {{article.createdAt | date('d/m/y')}} à {{article.createdAt | date('H:i')}}</b></div>
+            <img src="{{article.image}}" alt="">
+            <br>
+            {{article.content | raw}}
+            
+</div>
+
+{% endblock %}
