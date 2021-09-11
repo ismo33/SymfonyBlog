@@ -1,13 +1,36 @@
 {% extends "base.html.twig" %}
 {% block title %}Arcticle numéro{% endblock %}
 {% block body %}
-<div class="content">
+<article>
             <h2>{{article.title}}</h2>
-             <div class="metadata"><b>Article écrit le {{article.createdAt | date('d/m/y')}} à {{article.createdAt | date('H:i')}}</b></div>
+             <div class="metadata"><b>Article écrit le {{article.createdAt | date('d/m/y')}}
+              à {{article.createdAt | date('H:i')}} dans la catégorie
+               {{article.category.title}}</b></div>
             <img src="{{article.image}}" alt="">
             <br>
             {{article.content | raw}}
             
-</div>
+</article>
+<br>
+<br>
+<section id="commentaire">
+{% for comment in article.comments %}
+    
+
+    <div class="comment">
+        <div class="row">
+            <div class="col-3">
+            {{comment.author}} (<small>{{comment.createdAt | date('d/m/y à H:i')}}
+                                </small>)
+            </div>
+            <div class="col">
+            {{comment.content | raw}}
+            <hr>
+            </div>
+
+        </div>
+    </div>
+    {% endfor %}
+</section>
 
 {% endblock %}

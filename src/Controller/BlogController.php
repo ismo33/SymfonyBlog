@@ -15,11 +15,13 @@ use App\Form\ArticleType;
 
 
 
+
 class BlogController extends AbstractController
 {
-    /**s
+    /**
      * @Route("/blog", name="blog")
      */
+        
     public function index(ArticleRepository $repo): Response
     {
        
